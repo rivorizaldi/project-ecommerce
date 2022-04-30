@@ -20,7 +20,7 @@ const Home: React.FC<IHomePage> = ({ productsData, bannerData }) => {
       </div>
       <div className="products-container">
         {productsData?.map((product) => (
-          <Product key={product._id} product={product} />
+          <Product key={product._id} product={product} onClick={() => {}} />
         ))}
       </div>
 
