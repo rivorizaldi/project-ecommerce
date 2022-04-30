@@ -1,34 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A clone of fullstack ecommerce project from [Javascript Mastery Youtube Channel](https://www.youtube.com/watch?v=4mOkFXyxfsU). Build with NextJS Framework, CMS content using Sanity, and payment integration using Stripe. Also with some modification and fixing :
 
-## Getting Started
+1. This project is fully rewrite using Typescript
+2. Fixing a bug when update cart data when the updated data always move into last index
+3. Fixing a bug to quantity value from product detail that doesnt reset to 1 if move into another product detail from same page
 
-First, run the development server:
+Project Screenshots :
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![1](https://user-images.githubusercontent.com/38255538/166104871-32234f2c-eb70-4b63-adea-7df14d114bd6.png)
+![2](https://user-images.githubusercontent.com/38255538/166104874-8b328ebe-5792-4711-9bfc-729463be89f8.png)
+![3](https://user-images.githubusercontent.com/38255538/166104876-1d41ff0a-cfd1-44d9-9346-87b897d8d063.png)
+![4](https://user-images.githubusercontent.com/38255538/166104883-8fcd6715-76a6-4bbf-91e4-5b5e95b19132.png)
+![5](https://user-images.githubusercontent.com/38255538/166104885-c70425b9-f214-4ef3-a405-d6ba149994ea.png)
+![6](https://user-images.githubusercontent.com/38255538/166104886-817b964c-86d5-44ae-95d5-80128cf07217.png)
