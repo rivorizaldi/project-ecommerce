@@ -31,6 +31,10 @@ export const StateContext: FC = ({ children }) => {
     });
   };
 
+  const resetQty = () => {
+    setqty(1);
+  };
+
   const addCart = (product: IProduct, quantity: number) => {
     const checkProductCart = cartItems.find((item) => item._id === product._id);
     setTotalPrice(
@@ -61,21 +65,35 @@ export const StateContext: FC = ({ children }) => {
   const addCartItemQuantity = (id: string, value: string) => {
     foundProduct = cartItems?.find((item) => item._id === id);
     index = cartItems?.findIndex((item) => item._id === id);
-    const newCartItems = cartItems.filter((item) => item._id !== id);
 
     if (value === "inc") {
-      setCartItems([
-        ...newCartItems,
-        { ...foundProduct, quantity: foundProduct.quantity + 1 },
-      ]);
+      const newCartItems = cartItems.map((item) => {
+        if (item._id === id) {
+          return {
+            ...item,
+            quantity: foundProduct.quantity + 1,
+          };
+        } else {
+          return item;
+        }
+      });
+
+      setCartItems([...newCartItems]);
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
       setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1);
     } else if (value === "dec") {
+      const newCartItems = cartItems.map((item) => {
+        if (item._id === id) {
+          return {
+            ...item,
+            quantity: foundProduct.quantity - 1,
+          };
+        } else {
+          return item;
+        }
+      });
       if (foundProduct.quantity > 1) {
-        setCartItems([
-          ...newCartItems,
-          { ...foundProduct, quantity: foundProduct.quantity - 1 },
-        ]);
+        setCartItems([...newCartItems]);
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
       }
@@ -106,6 +124,7 @@ export const StateContext: FC = ({ children }) => {
         setCartItems,
         setTotalPrice,
         setTotalQuantities,
+        resetQty,
         totalPrice,
         totalQuantities,
         qty,

@@ -1,15 +1,16 @@
-import React from "react";
-import Link from "next/link";
+import React, { ReactNode } from "react";
+import Link, { LinkProps } from "next/link";
 import { IProduct } from "../model";
 import { urlFor } from "../lib/client";
 
 interface IProductProps {
   product: IProduct;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Product: React.FC<IProductProps> = ({ product }) => {
+const Product: React.FC<IProductProps> = ({ product, onClick }) => {
   return (
-    <div>
+    <div onClick={onClick}>
       <Link href={`/product/${product?.slug?.current}`}>
         <div className="product-card">
           <img

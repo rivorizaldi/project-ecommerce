@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Layout } from "../components";
+import { useEffect } from "react";
 import { StateContext } from "../context/StateContext";
 import { Toaster } from "react-hot-toast";
 

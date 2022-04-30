@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { urlFor, client } from "../../lib/client";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { IProduct } from "../../model";
@@ -19,12 +19,17 @@ import { useStateContext } from "../../context/StateContext";
 const ProductDetails = ({ productData, productsData }: IProductDetail) => {
   const { image, name, details, price } = productData;
   const [index, setIndex] = useState(0);
-  const { addQty, reduceQty, qty, addCart, setShowCart } = useStateContext();
+  const { addQty, reduceQty, qty, addCart, setShowCart, resetQty } =
+    useStateContext();
 
   const handleBuyNow = () => {
     addCart(productData, qty);
     setShowCart(true);
   };
+
+  useEffect(() => {
+    resetQty();
+  }, []);
 
   return (
     <div>
@@ -100,7 +105,13 @@ const ProductDetails = ({ productData, productsData }: IProductDetail) => {
         <div className="marquee">
           <div className="maylike-products-container track">
             {productsData?.map((item) => (
-              <Product key={item._id} product={item} />
+              <Product
+                key={item._id}
+                product={item}
+                onClick={() => {
+                  resetQty();
+                }}
+              />
             ))}
           </div>
         </div>
